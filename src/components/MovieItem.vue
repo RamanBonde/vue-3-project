@@ -1,0 +1,26 @@
+<template>
+  <div class="movie">
+    <div class="movie-col-left">
+      <router-link :to="{ name: 'movieDetails', params: { id: movie.id } }"
+        ><img v-bind:src="movie.movie.Poster"
+      /></router-link>
+    </div>
+    <div class="movie-col-right">
+      <div class="movie-title">
+        <router-link :to="{ name: 'movieDetails', params: { id: movie.id } }">
+          <h2>{{ movie.movie.Title }}</h2></router-link
+        >
+        <span class="movie-rating">{{ movie.movie.Rated }}</span>
+      </div>
+      <slot />
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    movie: Object
+  }
+};
+</script>
